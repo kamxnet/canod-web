@@ -1,37 +1,230 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
-</head>
-<body>
-<p class="p1">body {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-family: Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding: 60px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background: #111;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color: #fff;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">main {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>max-width: 900px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin: auto;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">h1 {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-size: 64px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 10px;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">h2 {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin-top: 50px;</p>
-<p class="p1">}</p>
-</body>
-</html>
+* { box-sizing: border-box; }
+
+:root {
+  --ink: #111111;
+  --paper: #f4f1ea;
+  --white: #ffffff;
+  --muted: #6e6d68;
+  --line: rgba(17,17,17,.16);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.shell {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(244,241,234,.9);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-wrap {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: .18em;
+}
+
+.nav { display: flex; gap: 30px; }
+.nav a { font-size: .86rem; font-weight: 650; }
+.nav a:hover { opacity: .55; }
+
+.hero {
+  min-height: 760px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 110px 0 120px;
+}
+
+.eyebrow, .kicker, .card-label {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.hero h1 {
+  margin: 24px 0 30px;
+  max-width: 1000px;
+  font-size: clamp(4.5rem, 10.5vw, 9rem);
+  line-height: .88;
+  letter-spacing: -.07em;
+  font-weight: 800;
+}
+
+.hero-copy {
+  max-width: 680px;
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.5;
+  color: #45443f;
+}
+
+.hero-actions {
+  margin-top: 44px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 750;
+}
+
+.primary { background: var(--ink); color: var(--white); }
+.primary:hover { opacity: .82; }
+.status { font-size: .9rem; color: var(--muted); }
+
+.manifesto {
+  background: var(--ink);
+  color: var(--white);
+  padding: 120px 0;
+}
+
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 60px;
+}
+
+.manifesto .kicker { color: #aaa9a3; }
+.statement {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 4.3rem);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+  font-weight: 650;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 110px 0 50px;
+}
+
+.card {
+  min-height: 620px;
+  padding: 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 4px;
+}
+
+.card-dark { background: #171717; color: white; }
+.card-light { background: #dedbd2; color: var(--ink); }
+.card-label { opacity: .62; }
+.card-content h2 {
+  margin: 0 0 26px;
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+.card-content p {
+  max-width: 520px;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  opacity: .78;
+}
+.coming {
+  display: block;
+  margin-top: 36px;
+  font-size: .86rem;
+  font-weight: 750;
+}
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  padding: 70px 0 130px;
+}
+
+.principle { border-top: 1px solid var(--ink); padding-top: 18px; }
+.principle span { font-size: .72rem; color: var(--muted); }
+.principle h3 { margin: 42px 0 14px; font-size: 1.35rem; }
+.principle p { margin: 0; color: var(--muted); line-height: 1.55; }
+
+.about { border-top: 1px solid var(--line); padding: 130px 0; }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+}
+.about h2 {
+  margin: 26px 0 0;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+.about-copy { padding-top: 36px; }
+.about-copy p { font-size: 1.2rem; line-height: 1.65; color: #4b4a46; }
+
+.closing {
+  border-top: 1px solid var(--line);
+  padding: 130px 0 160px;
+}
+.closing h2 {
+  margin: 25px 0 0;
+  font-size: clamp(3.2rem, 7vw, 7rem);
+  line-height: .92;
+  letter-spacing: -.06em;
+}
+
+.footer { background: var(--ink); color: white; padding: 60px 0; }
+.footer-grid { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
+.footer-brand { margin-bottom: 12px; }
+.footer p { margin: 0; color: #aaa9a3; }
+.footer-meta { display: flex; gap: 28px; font-size: .8rem; color: #aaa9a3; }
+
+@media (max-width: 760px) {
+  .shell { width: min(100% - 30px, 1180px); }
+  .nav { gap: 16px; }
+  .nav a:nth-child(2) { display: none; }
+  .hero { min-height: 650px; padding: 80px 0; }
+  .hero h1 { font-size: clamp(4rem, 20vw, 6.4rem); }
+  .manifesto { padding: 85px 0; }
+  .manifesto-grid, .categories, .principles, .about-grid { grid-template-columns: 1fr; }
+  .manifesto-grid { gap: 35px; }
+  .categories { padding-top: 70px; }
+  .card { min-height: 500px; padding: 28px; }
+  .principles { gap: 55px; padding-bottom: 90px; }
+  .principle h3 { margin-top: 25px; }
+  .about { padding: 90px 0; }
+  .about-grid { gap: 30px; }
+  .about-copy { padding-top: 0; }
+  .closing { padding: 90px 0 110px; }
+  .footer-grid { align-items: flex-start; flex-direction: column; }
+}
